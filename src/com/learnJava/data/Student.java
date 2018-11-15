@@ -50,6 +50,10 @@ public class Student {
         this.gpa = gpa;
     }
 
+    public void printListOfActivities() {
+        System.out.println(activities);
+    }
+
     public List<String> getActivities() {
         return activities;
     }
