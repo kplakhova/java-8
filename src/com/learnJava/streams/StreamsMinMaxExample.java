@@ -11,6 +11,11 @@ public class StreamsMinMaxExample {
                 .reduce(0, Integer::max);
     }
 
+    public static Optional<Integer> findMinValue(List<Integer> integerList) {
+        return integerList.stream()
+                .reduce(Integer::min);
+    }
+
     public static Optional<Integer> findMaxValueOptional(List<Integer> integerList) {
         return integerList.stream()
                 .reduce(Integer::max);
@@ -26,6 +31,11 @@ public class StreamsMinMaxExample {
             System.out.println("findMaxValueOptional : " + maxValueOptional.get());
         } else {
             System.out.println("input list is empty");
+        }
+
+        Optional<Integer> minValue = findMinValue(integerList);
+        if (minValue.isPresent()) {
+            System.out.println("findMinValue : " + minValue.get());
         }
     }
 }
