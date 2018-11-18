@@ -10,4 +10,4 @@
 # Packages
 *.zip
 
-out/
+target/
