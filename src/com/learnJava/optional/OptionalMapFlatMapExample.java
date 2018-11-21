@@ -1,5 +1,6 @@
 package com.learnJava.optional;
 
+import com.learnJava.data.Bike;
 import com.learnJava.data.Student;
 import com.learnJava.data.StudentDataBase;
 
@@ -22,7 +23,7 @@ public class OptionalMapFlatMapExample {
             Optional<String> name = studentOptional
                     .filter(student -> student.getGpa() >= 3.5)
                     .map(Student::getName);
-            System.out.println(name);
+            name.ifPresent(s-> System.out.println("name : " + s));
         }
     }
 
@@ -32,8 +33,9 @@ public class OptionalMapFlatMapExample {
         if (studentOptional.isPresent()) {
             Optional<String> name = studentOptional
                     .filter(student -> student.getGpa() >= 3.5)
-                    .map(Student::getName);
-            System.out.println(name);
+                    .flatMap(Student::getBike)
+                    .map(Bike::getName);
+            name.ifPresent(s-> System.out.println("name : " + s));
         }
     }
 
@@ -41,6 +43,7 @@ public class OptionalMapFlatMapExample {
 
         optionalFilter();
         optionalMap();
+        optionalFlatMap();
 
     }
 }
